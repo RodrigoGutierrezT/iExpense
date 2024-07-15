@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct AddView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var name = ""
     @State private var type = "Personal"
     @State private var amount = 0.0
+    @State private var currency = "USD"
     
     let types = ["Business", "Personal"]
+    let currencyList = ["USD", "CLP"]
     
     let expenses: Expenses
     
@@ -27,14 +30,21 @@ struct AddView: View {
                     }
                 }
                 
-                TextField("Amount", value: $amount, format: .currency(code: "USD"))
+                Picker("Currency", selection: $currency) {
+                    ForEach(currencyList, id: \.self) {
+                        Text($0)
+                    }
+                }
+                
+                TextField("Amount", value: $amount, format: .currency(code: currency))
                     .keyboardType(.decimalPad)
             }
             .navigationTitle("Add new expense")
             .toolbar {
                 Button("Save") {
-                    let item = ExpenseItem(name: name, type: type, amount: amount)
+                    let item = ExpenseItem(name: name, type: type, amount: amount, currency: currency)
                     expenses.items.append(item)
+                    dismiss()
                 }
             }
         }

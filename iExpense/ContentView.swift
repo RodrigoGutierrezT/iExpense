@@ -12,6 +12,7 @@ struct ExpenseItem: Identifiable, Codable {
     let name: String
     let type: String
     let amount: Double
+    let currency: String
 }
 
 @Observable
@@ -36,6 +37,26 @@ class Expenses {
     }
 }
 
+struct ExpenseAmount: ViewModifier {
+    let amount: Double
+    
+    func body(content: Content) -> some View {
+        if amount <= 10 {
+            return content
+                .foregroundColor(.green)
+                .font(.headline)
+        } else if amount <= 100 {
+            return content
+                .foregroundColor(.blue)
+                .font(.headline)
+        } else {
+            return content
+                .foregroundColor(.red)
+                .font(.headline)
+        }
+    }
+}
+
 struct ContentView: View {
     @State private var expenses = Expenses()
     @State private var showingAddExpense = false
@@ -43,10 +64,45 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(expenses.items) { item in
-                    Text(item.name)
-                }
-                .onDelete(perform: removeItems)
+                expenses.items.contains(where: { $0.type == "Personal" }) ?
+                Section("Personal") {
+                    ForEach(expenses.items) { item in
+                        if item.type == "Personal" {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(item.name)
+                                    Text(item.type)
+                                }
+                                
+                                Spacer()
+                                
+                                Text(item.amount, format: .currency(code: item.currency))
+                                    .modifier(ExpenseAmount(amount: item.amount))
+                            }
+                        }
+                    }
+                    .onDelete(perform: removeItems)
+                } : nil
+                
+                expenses.items.contains(where: { $0.type == "Business" }) ?
+                Section("Business") {
+                    ForEach(expenses.items) { item in
+                        if item.type == "Business" {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(item.name)
+                                    Text(item.type)
+                                }
+                                
+                                Spacer()
+                                
+                                Text(item.amount, format: .currency(code: item.currency))
+                                    .modifier(ExpenseAmount(amount: item.amount))
+                            }
+                        }
+                    }
+                    .onDelete(perform: removeItems)
+                } : nil
             }
             .navigationTitle("iExpense")
             .toolbar {
