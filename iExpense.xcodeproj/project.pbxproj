@@ -13,6 +13,7 @@
 		5B3EAA4D2C435F9D00D115A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3EAA4C2C435F9D00D115A6 /* Preview Assets.xcassets */; };
 		5B3EAA542C4360D600D115A6 /* TestShowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3EAA532C4360D600D115A6 /* TestShowingView.swift */; };
 		5B3EAA562C43662400D115A6 /* TestDeletingItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3EAA552C43662400D115A6 /* TestDeletingItemsView.swift */; };
+		5B6454D62C44CE04007039B8 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6454D52C44CE04007039B8 /* AddView.swift */; };
 		5B7AB44D2C438B080004496F /* TestUserDefaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AB44C2C438B080004496F /* TestUserDefaultsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		5B3EAA4C2C435F9D00D115A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5B3EAA532C4360D600D115A6 /* TestShowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestShowingView.swift; sourceTree = "<group>"; };
 		5B3EAA552C43662400D115A6 /* TestDeletingItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDeletingItemsView.swift; sourceTree = "<group>"; };
+		5B6454D52C44CE04007039B8 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		5B7AB44C2C438B080004496F /* TestUserDefaultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserDefaultsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,7 @@
 			children = (
 				5B3EAA452C435F9C00D115A6 /* iExpenseApp.swift */,
 				5B3EAA472C435F9C00D115A6 /* ContentView.swift */,
+				5B6454D52C44CE04007039B8 /* AddView.swift */,
 				5B3EAA492C435F9D00D115A6 /* Assets.xcassets */,
 				5B3EAA4B2C435F9D00D115A6 /* Preview Content */,
 				5B3EAA532C4360D600D115A6 /* TestShowingView.swift */,
@@ -148,6 +151,7 @@
 			files = (
 				5B3EAA482C435F9C00D115A6 /* ContentView.swift in Sources */,
 				5B3EAA542C4360D600D115A6 /* TestShowingView.swift in Sources */,
+				5B6454D62C44CE04007039B8 /* AddView.swift in Sources */,
 				5B3EAA462C435F9C00D115A6 /* iExpenseApp.swift in Sources */,
 				5B3EAA562C43662400D115A6 /* TestDeletingItemsView.swift in Sources */,
 				5B7AB44D2C438B080004496F /* TestUserDefaultsView.swift in Sources */,
